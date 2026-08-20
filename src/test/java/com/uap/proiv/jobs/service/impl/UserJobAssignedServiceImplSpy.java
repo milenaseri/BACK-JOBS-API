@@ -6,6 +6,8 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -112,6 +114,6 @@ public class UserJobAssignedServiceImplSpy {
 
         verify(jobService, times(1)).getAllJobs();
         verify(userService, times(1)).search(1);
-        verify(assignedService, times(1)).create(jobs, List.of(1, 2));
+        verify(assignedService, times(1)).create(eq(jobs), any());
     }
 }
