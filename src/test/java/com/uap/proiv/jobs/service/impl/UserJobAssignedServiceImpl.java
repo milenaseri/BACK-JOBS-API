@@ -17,12 +17,14 @@ public class UserJobAssignedServiceImpl implements UserJobAssignedService {
     private final JobService jobService;
     private final UserService userService;
     private final AssignedService assignedService;
+
     @Autowired
     public UserJobAssignedServiceImpl(JobService jobService, UserService userService, AssignedService assignedService) {
         this.jobService = jobService;
         this.userService = userService;
         this.assignedService = assignedService;
     }
+
     @Override
     public List<UserJobAssigned> assign() {
         List<Job> jobs = jobService.getAllJobs();
@@ -48,6 +50,5 @@ public class UserJobAssignedServiceImpl implements UserJobAssignedService {
                    ).toList();
            return new UserJobAssigned(usersJob, job);
         }).toList();
-
     }
 }
